@@ -191,21 +191,21 @@ iface eth0 inet dhcp
 
 ---
 ## Routing
-### FOOSHA
+### FOOSHA  
 ![image](https://user-images.githubusercontent.com/63065991/145660290-c0f89722-50d0-43b4-9978-e5084d8e312c.png)
 
 ---
 ## Setting DHCP Relay
 ### Pada Water7
 Melakukan instalasi aplikasi isc-dhcp-relay dengan perintah `apt-get install isc-dhcp-relay -y`
-Selanjutnya melakukan edit pada file /etc/default/isc-dhcp-relay seperti pada gambar :
+Selanjutnya melakukan edit pada file /etc/default/isc-dhcp-relay seperti pada gambar :  
 ![image](https://user-images.githubusercontent.com/63065991/145660355-3d247120-90a5-4b5c-83fd-adc171dd3d3f.png)
 
 Kemudian melakukan restart DHCP Relay dengan perintah `service isc-dhcp-relay restart`
 
 ### Pada Guanhao
 Melakukan instalasi aplikasi isc-dhcp-relay dengan perintah `apt-get install isc-dhcp-relay -y`
-Selanjutnya melakukan edit pada file /etc/default/isc-dhcp-relay seperti pada gambar :
+Selanjutnya melakukan edit pada file /etc/default/isc-dhcp-relay seperti pada gambar :  
 ![image](https://user-images.githubusercontent.com/63065991/145660378-e879ca4f-d79e-47a7-87f6-66c099b80aa0.png)
 
 Kemudian melakukan restart DHCP Relay dengan perintah `service isc-dhcp-relay restart`
@@ -214,11 +214,11 @@ Kemudian melakukan restart DHCP Relay dengan perintah `service isc-dhcp-relay re
 ## Setting DHCP Server
 ### pada Jipangu
 Melakukan instalasi aplikasi isc-dhcp-relay dengan perintah `apt-get install isc-dhcp-relay -y`
-Selanjutnya melakukan edit pada file `/etc/default/isc-dhcp-server` seperti pada gambar :
+Selanjutnya melakukan edit pada file `/etc/default/isc-dhcp-server` seperti pada gambar :  
 ![image](https://user-images.githubusercontent.com/63065991/145660409-be0ef2e6-4d43-48ae-b98f-2ee9dd1e2bf0.png)
 
-Dilanjutkan dengan melakukan edit pada file `/etc/dhcp/dhcpd.conf` untuk menambahkan subnet sebagai berikut:
-![image](https://user-images.githubusercontent.com/63065991/145660456-c8237ffb-7dbb-49fe-901e-bcfcea4e0a5e.png)
+Dilanjutkan dengan melakukan edit pada file `/etc/dhcp/dhcpd.conf` untuk menambahkan subnet sebagai berikut:  
+![image](https://user-images.githubusercontent.com/63065991/145660456-c8237ffb-7dbb-49fe-901e-bcfcea4e0a5e.png)  
 ![image](https://user-images.githubusercontent.com/63065991/145660463-3b9887c1-d700-4409-b17e-08b38f2abc7e.png)
 
 Kemudian melakukan restart DHCP Relay dengan perintah `service isc-dhcp-server restart`
@@ -232,7 +232,7 @@ Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk meng
 iptables -t nat -A POSTROUTING -s 10.49.0.0/18 -o eth0 -j SNAT --to-source 192.$
 ```
 
-### pada Bueno
+### pada Bueno  
 ![image](https://user-images.githubusercontent.com/63065991/145660575-a980352f-7612-4d48-a03f-9783185cd7f3.png)
 
 ---
@@ -254,7 +254,7 @@ nmap -p 80 10.49.4.2
 nmap -p 80 10.49.4.3
 ```
 
-Berikut adalah dokumentasi hasil pengujian pada Elena dengan menjalankan perintah di atas
+Berikut adalah dokumentasi hasil pengujian pada Elena dengan menjalankan perintah di atas  
 ![image](https://user-images.githubusercontent.com/63065991/145660911-71bdac67-8c80-49ef-a961-230723adf625.png)
 
 ---
@@ -268,11 +268,11 @@ iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j
 
 ### Testing
 
-Berikut adalah dokumentasi hasil pengujian dengan melakukan ping ke Jipangu pada 4 node secara bersamaan
-![image](https://user-images.githubusercontent.com/63065991/145661017-bc8ea3c6-75a9-42a8-8ab1-a19ab6ac7d67.png)
-![image](https://user-images.githubusercontent.com/63065991/145661027-738d0c81-69da-4c90-8e3a-8dd8ece15776.png)
-![image](https://user-images.githubusercontent.com/63065991/145661033-0883001e-632a-4518-8451-b8f16bf1a459.png)
-![image](https://user-images.githubusercontent.com/63065991/145661096-016569fb-b970-4a82-866b-718096a290bc.png)
+Berikut adalah dokumentasi hasil pengujian dengan melakukan ping ke Jipangu pada 4 node secara bersamaan  
+![image](https://user-images.githubusercontent.com/63065991/145661017-bc8ea3c6-75a9-42a8-8ab1-a19ab6ac7d67.png)  
+![image](https://user-images.githubusercontent.com/63065991/145661027-738d0c81-69da-4c90-8e3a-8dd8ece15776.png)  
+![image](https://user-images.githubusercontent.com/63065991/145661033-0883001e-632a-4518-8451-b8f16bf1a459.png)  
+![image](https://user-images.githubusercontent.com/63065991/145661096-016569fb-b970-4a82-866b-718096a290bc.png)  
 
 
 ---
@@ -288,10 +288,10 @@ iptables -A INPUT -s 10.49.0.0/19 -m time --weekdays Sat,Sun -j REJECT
 ```
 
 ### Testing
-Berikut adalah dokumentasi hasil pengujian pada Blueno dengan mengubah waktu menggunakan perintah `date -s "3 DEC 2021 13:00:00"` lalu melakukan ping ke Doriki
+Berikut adalah dokumentasi hasil pengujian pada Blueno dengan mengubah waktu menggunakan perintah `date -s "3 DEC 2021 13:00:00"` lalu melakukan ping ke Doriki  
 ![image](https://user-images.githubusercontent.com/63065991/145661218-3a111fc4-6c77-4b96-b07b-2b36cfe583ab.png)
 
-Berikut adalah dokumentasi hasil pengujian pada Cipher dengan mengubah waktu menggunakan perintah `date -s "3 DEC 2021 13:00:00"` lalu melakukan ping ke Doriki
+Berikut adalah dokumentasi hasil pengujian pada Cipher dengan mengubah waktu menggunakan perintah `date -s "3 DEC 2021 13:00:00"` lalu melakukan ping ke Doriki  
 ![image](https://user-images.githubusercontent.com/63065991/145661249-2dc1948f-8b74-4f74-9596-c188ba76210a.png) 
 
 ---
@@ -304,10 +304,10 @@ Melakukan konfigurasi untuk mengatur batas waktu sebagai berikut
 iptables -A INPUT -s 10.49.32.0/21 -m time --timestart 07:00 --timestop 14:59 -$
 ```
 ### Testing
-Berikut adalah dokumentasi hasil pengujian pada Elena dengan mengubah waktu menggunakan perintah `date -s "8 DEC 2021 13:00:00"` lalu melakukan ping ke Doriki
+Berikut adalah dokumentasi hasil pengujian pada Elena dengan mengubah waktu menggunakan perintah `date -s "8 DEC 2021 13:00:00"` lalu melakukan ping ke Doriki  
 ![image](https://user-images.githubusercontent.com/63065991/145661374-70261890-87dd-4441-91ea-45462f0abf3d.png)
 
-Berikut adalah dokumentasi hasil pengujian pada Blueno dengan mengubah waktu menggunakan perintah `date -s "8 DEC 2021 18:00:00"` lalu melakukan ping ke Doriki
+Berikut adalah dokumentasi hasil pengujian pada Blueno dengan mengubah waktu menggunakan perintah `date -s "8 DEC 2021 18:00:00"` lalu melakukan ping ke Doriki  
 ![image](https://user-images.githubusercontent.com/63065991/145661385-c5e45b3e-fc97-4780-ba97-f6dc00b8b5e1.png)
 
 ---
